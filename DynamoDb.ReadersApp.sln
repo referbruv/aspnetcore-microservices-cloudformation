@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamoDb.Core", "DynamoDb.Core\DynamoDb.Core.csproj", "{45DCB731-3BEA-4370-8849-D7A3460C88A7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamoDb.Contracts", "DynamoDb.Contracts\DynamoDb.Contracts.csproj", "{07F5E3D8-4C7D-4EFF-B6C6-3640A884BEDE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamoDb.ReadersApp.WebApi", "DynamoDb.ReadersApp.WebApi\DynamoDb.ReadersApp.WebApi.csproj", "{5446D049-9FCB-4895-8934-21C4DB602AD3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamoDb.WritersApp.WebApi", "DynamoDb.WritersApp.WebApi\DynamoDb.WritersApp.WebApi.csproj", "{9A9D6F27-32EC-43A7-AE6D-6F7CF4F01462}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadersMicroService", "ReadersMicroService", "{F034E8EA-35B3-4958-ACFE-2CF2789169C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WritersMicroService", "WritersMicroService", "{14A70793-2821-424A-9DE6-C6BBDFA054A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4FB906CF-7CFE-48B0-89BA-EAACE43B4C32}"
+	ProjectSection(SolutionItems) = preProject
+		aws-lambda-tools-defaults.json = aws-lambda-tools-defaults.json
+		serverless.template = serverless.template
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45DCB731-3BEA-4370-8849-D7A3460C88A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45DCB731-3BEA-4370-8849-D7A3460C88A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45DCB731-3BEA-4370-8849-D7A3460C88A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45DCB731-3BEA-4370-8849-D7A3460C88A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07F5E3D8-4C7D-4EFF-B6C6-3640A884BEDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07F5E3D8-4C7D-4EFF-B6C6-3640A884BEDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07F5E3D8-4C7D-4EFF-B6C6-3640A884BEDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07F5E3D8-4C7D-4EFF-B6C6-3640A884BEDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5446D049-9FCB-4895-8934-21C4DB602AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5446D049-9FCB-4895-8934-21C4DB602AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5446D049-9FCB-4895-8934-21C4DB602AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5446D049-9FCB-4895-8934-21C4DB602AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A9D6F27-32EC-43A7-AE6D-6F7CF4F01462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A9D6F27-32EC-43A7-AE6D-6F7CF4F01462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A9D6F27-32EC-43A7-AE6D-6F7CF4F01462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A9D6F27-32EC-43A7-AE6D-6F7CF4F01462}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5446D049-9FCB-4895-8934-21C4DB602AD3} = {F034E8EA-35B3-4958-ACFE-2CF2789169C9}
+		{9A9D6F27-32EC-43A7-AE6D-6F7CF4F01462} = {14A70793-2821-424A-9DE6-C6BBDFA054A2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89FA1632-D3B5-4461-845D-437053116135}
+	EndGlobalSection
+EndGlobal

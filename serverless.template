@@ -1,0 +1,134 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "An AWS Serverless Application that uses the ASP.NET Core framework running in Amazon Lambda.",
+  "Conditions": {},
+  "Resources": {
+    "testReadersFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "DynamoDb.ReadersApp.WebApi::DynamoDb.ReadersApp.WebApi.LambdaEntryPoint::FunctionHandlerAsync",
+        "Runtime": "dotnetcore3.1",
+        "CodeUri": "./DynamoDb.ReadersApp.WebApi/",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          {
+            "Statement": [
+              {
+                "Sid": "ListAndDescribe",
+                "Effect": "Allow",
+                "Action": [
+                  "dynamodb:List*",
+                  "dynamodb:DescribeReservedCapacity*",
+                  "dynamodb:DescribeLimits",
+                  "dynamodb:DescribeTimeToLive"
+                ],
+                "Resource": "*"
+              },
+              {
+                "Sid": "SpecificTable",
+                "Effect": "Allow",
+                "Action": [
+                  "dynamodb:BatchGet*",
+                  "dynamodb:DescribeStream",
+                  "dynamodb:DescribeTable",
+                  "dynamodb:Get*",
+                  "dynamodb:Query",
+                  "dynamodb:Scan",
+                  "dynamodb:BatchWrite*",
+                  "dynamodb:CreateTable",
+                  "dynamodb:Delete*",
+                  "dynamodb:Update*",
+                  "dynamodb:PutItem"
+                ],
+                "Resource": "arn:aws:dynamodb:*:*:table/test_readers"
+              }
+            ]
+          }
+        ],
+        "Environment": {
+          "Variables": {}
+        },
+        "Events": {
+          "ProxyResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/readers/{proxy+}",
+              "Method": "ANY"
+            }
+          }
+        }
+      }
+    },
+    "testWritersFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "DynamoDb.WritersApp.WebApi::DynamoDb.WritersApp.WebApi.LambdaEntryPoint::FunctionHandlerAsync",
+        "Runtime": "dotnetcore3.1",
+        "CodeUri": "./DynamoDb.WritersApp.WebApi/",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          {
+            "Statement": [
+              {
+                "Sid": "ListAndDescribe",
+                "Effect": "Allow",
+                "Action": [
+                  "dynamodb:List*",
+                  "dynamodb:DescribeReservedCapacity*",
+                  "dynamodb:DescribeLimits",
+                  "dynamodb:DescribeTimeToLive"
+                ],
+                "Resource": "*"
+              },
+              {
+                "Sid": "SpecificTable",
+                "Effect": "Allow",
+                "Action": [
+                  "dynamodb:BatchGet*",
+                  "dynamodb:DescribeStream",
+                  "dynamodb:DescribeTable",
+                  "dynamodb:Get*",
+                  "dynamodb:Query",
+                  "dynamodb:Scan",
+                  "dynamodb:BatchWrite*",
+                  "dynamodb:CreateTable",
+                  "dynamodb:Delete*",
+                  "dynamodb:Update*",
+                  "dynamodb:PutItem"
+                ],
+                "Resource": "arn:aws:dynamodb:*:*:table/test_writers"
+              }
+            ]
+          }
+        ],
+        "Environment": {
+          "Variables": {}
+        },
+        "Events": {
+          "ProxyResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/writers/{proxy+}",
+              "Method": "ANY"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "ApiURL": {
+      "Description": "API endpoint URL for Prod environment",
+      "Value": {
+        "Fn::Sub": "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+      }
+    }
+  }
+}
