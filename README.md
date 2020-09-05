@@ -1,6 +1,6 @@
-# aspnetcore-dynamodb-boilerplate
-A sample application with boilerplate code to Demonstrate the Create, Retrieve, Update, Delete operations on a DynamoDB Table from ASP.NET Core application.
+# aspnetcore-microservices-cloudformation
+A sample application to demonstrate creating Microservices with ASP.NET Core in AWS using Serverless Application Model (SAM) and CloudFormation.
 
 The complete explanation of this code is available at
 
-https://referbruv.com/blog/posts/working-with-dynamodb-in-aspnet-core-crud-with-example-and-boilerplate
+https://referbruv.com/blog/posts/creating-aspnet-core-microservices-in-aws-using-sam-and-cloudformation
